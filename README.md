@@ -3,7 +3,24 @@
 Use BeautifulSoup and Splinter to scrape full-resolution images of Mars’s hemispheres and the titles of those images, store the scraped data on a Mongo database, and create a web application using flask to display the data and alter the design of the web app to accommodate these images.
 
 ## Mobile responsiveness
-Mobile responsiveness was added to images and HTML tables to protocols and schematics to complete the pre-flight checklist from their mobile devices.
+Mission control reviewed mobile responsiveness to ensure the site was bootstrap 3 compliant and added BS3 attributes to images and tables to ensure that ground crews' mobile platforms were responsive and rendered all content correctly.
+
+```
+<link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+/>
+
+ <img src="{{mars.featured_image | default('static/images/error.png', true) }}"
+      class="img-responsive"
+      alt="Responsive image"
+ />
+
+<div class="table-responsive">
+    {{ mars.facts | safe }}
+</div>
+
+```
 
 ## Pre-Flight Adjustments
 
